@@ -1,23 +1,22 @@
 CXX ?= g++
 
 # Directory containing assignment2.h (starter kit); override with: make INC=path
-INC ?= src/partA
 
-PTHREADS := build/matmul_pthreads
-OMP      := build/matmul_omp
+PTHREADS := bin/matmul_pthreads
+OMP      := bin/matmul_omp
 
 all: pthreads omp
 
 pthreads: $(PTHREADS)
 omp: $(OMP)
 
-$(PTHREADS): src/partA/matmul.cpp
+$(PTHREADS): src/matmul.cpp
 	@mkdir -p build
-	$(CXX) -O2 -pthread -I$(INC) $< -o $@
+	$(CXX) -O2 -pthread $< -o $@
 
-$(OMP): src/partB/matmul_omp.cpp
+$(OMP): src/matmul_omp.cpp
 	@mkdir -p build
-	$(CXX) -O2 -fopenmp -I$(INC) $< -o $@
+	$(CXX) -O2 -fopenmp $< -o $@
 
 # Quick correctness checks on small sizes, including non-dividing thread counts
 test: all

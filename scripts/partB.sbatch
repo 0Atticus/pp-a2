@@ -18,7 +18,7 @@ mkdir -p data
 
 BSTAR=${1:?"b* required: sbatch scripts/run_partB.sbatch <bstar>"}
 REPS=10
-BIN=./build/matmul_omp
+BIN=./bin/matmul_omp
 
 # Required by the assignment for Part B
 export OMP_PROC_BIND=true

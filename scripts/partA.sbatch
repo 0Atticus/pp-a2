@@ -19,7 +19,7 @@ mkdir -p data
 
 PHASE=${1:?"phase required: sweep | main"}
 REPS=10
-BIN=./build/matmul_pthreads
+BIN=./bin/matmul
 
 # Record environment for the report
 {
