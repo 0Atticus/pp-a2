@@ -34,7 +34,7 @@ make
 
 run() {  # args: M K N pr pc b outfile
     echo ">> $*"
-    $BIN "$1" "$2" "$3" "$4" "$5" "$6" "$REPS" | tee -a "$7"
+    $BIN "$1" "$2" "$3" "$4" "$5" "$6" "$REPS" | tee -a "$7" || echo "FAILED: $*" | tee -a "$7"
 }
 
 if [ "$PHASE" = "sweep" ]; then

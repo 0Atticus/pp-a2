@@ -21,8 +21,10 @@
 // ---------------------------------------------------------------------------
 // ADJUST THESE TWO WRAPPERS to the real names/signatures in assignment2.h.
 // ---------------------------------------------------------------------------
-static void gen(int rows, int cols, unsigned seed) {
-    generate_matrix(rows, cols, seed);  // <-- check signature in header
+static void gen(double *X, int rows, int cols, unsigned seed) {
+    double *t = generate_matrix(rows, cols, seed);
+    std::memcpy(X, t, (size_t)rows * cols * sizeof(double));
+    free(t);
 }
 static double wall_time() {
     return now_seconds();                  // <-- check name in header
@@ -121,8 +123,8 @@ int main(int argc, char **argv) {
     // Allocation and input generation: outside the timed region.
     std::vector<double> A((size_t)M * K), B((size_t)K * N);
     std::vector<double> C((size_t)M * N), Cref((size_t)M * N);
-    gen(M, K, 1);
-    gen(K, N, 2);
+    gen(A.data(), M, K, 1);
+    gen(B.data(), K, N, 2);
 
     // Reference: sequential UNTILED product (b = 0).
     kernel(A.data(), B.data(), Cref.data(), M, K, N, 0, M, 0, N, 0);
