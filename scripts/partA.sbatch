@@ -7,7 +7,7 @@
 #SBATCH --time=02:00:00
 #SBATCH --output=data/slurm_%x_%j.out
 # Add your cluster's partition here if required, e.g.:
-##SBATCH --partition=<partition-name>
+#SBATCH --partition=Centaurus
 
 # Usage (from the archive root):
 #   sbatch scripts/run_partA.sh sweep          # phase 1: tile sweep, find b*
