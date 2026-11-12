@@ -1,9 +1,15 @@
 == date ==
-Wed Nov 11 07:18:40 PM EST 2026
+Thu Nov 12 01:09:15 AM EST 2026
 == host ==
 gal-c2.charlotte.edu
+== slurm job ==
+25308
 == compiler ==
 g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)
+== OMP env (Part B runs) ==
+OMP_PROC_BIND=true OMP_PLACES=cores
+== settings ==
+REPS=10 BIG=2048 SMALLN=1024
 == lscpu ==
 Architecture:                            x86_64
 CPU op-mode(s):                          32-bit, 64-bit
@@ -19,7 +25,7 @@ Thread(s) per core:                      1
 Core(s) per socket:                      18
 Socket(s):                               2
 Stepping:                                4
-CPU(s) scaling MHz:                      76%
+CPU(s) scaling MHz:                      85%
 CPU max MHz:                             3700.0000
 CPU min MHz:                             1200.0000
 BogoMIPS:                                6000.00
