@@ -125,6 +125,7 @@ int main(int argc, char **argv) {
     std::vector<double> C((size_t)M * N), Cref((size_t)M * N);
     gen(A.data(), M, K, 1);
     gen(B.data(), K, N, 2);
+    printf("A[0]=%g B[0]=%g Cref[0]=%g\n", A[0], B[0], Cref[0]);
 
     // Reference: sequential UNTILED product (b = 0).
     kernel(A.data(), B.data(), Cref.data(), M, K, N, 0, M, 0, N, 0);
